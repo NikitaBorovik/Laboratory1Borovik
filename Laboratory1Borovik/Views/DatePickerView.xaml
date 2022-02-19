@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="Laboratory1.Views.DatePickerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Laboratory1.Views"
+        mc:Ignorable="d"
+        Background="White"
+        Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock  Grid.Row="0" Text="Choose your date of birth" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Margin="5,0,0,0" VerticalAlignment="Stretch" Width="Auto" Height="Auto"></TextBlock>
+        <DatePicker Text="Pick your date" Name="dateOfBirthPicker" Grid.Row="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Margin="5,5,5,5" VerticalAlignment="Stretch" Width="Auto" Height="Auto"  SelectedDate="{Binding UserBirthday, Mode=TwoWay}"/>
+        <Button Content="Confirm" Grid.Row="2" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" Width="Auto" Command="{Binding ValidateFieldsCommand}"/>
+        <Button Content="Exit" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" Width="Auto" Command="{Binding ExitCommand}"/>
+        <TextBlock  Grid.Row="3" Grid.Column="0" TextAlignment="Center" HorizontalAlignment="Stretch" Text="Your age:"></TextBlock>
+        <TextBlock  Grid.Row="3" Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Stretch" Text="{Binding Congratulations, Mode=OneWay}" Grid.RowSpan="2"></TextBlock>
+        <TextBlock  Grid.Row="4" Grid.Column="0" TextAlignment="Center" HorizontalAlignment="Stretch" Text="{Binding UserAge, Mode=OneWay}" Width="Auto" Height="Auto"></TextBlock>
+        <TextBlock  Grid.Row="5" Grid.Column="0" TextAlignment="Center" HorizontalAlignment="Stretch" Margin="1,1,1,1"  Text="Chinese zodiac sign:" Width="Auto" Height="Auto"></TextBlock>
+        <TextBlock  Grid.Row="5" Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Stretch" Margin="1,1,1,1"  Text="Western zodiac sign:" Width="Auto" Height="Auto"></TextBlock>
+        <TextBlock  Grid.Row="6" Grid.Column="0" TextAlignment="Center" HorizontalAlignment="Stretch" Text="{Binding ChineseZodiacSign, Mode=OneWay}" Width="Auto" Height="Auto"></TextBlock>
+        <TextBlock  Grid.Row="6" Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Stretch" Text="{Binding WesternZodiacSign, Mode=OneWay}" Width="Auto" Height="Auto"></TextBlock>
+    </Grid>
+</UserControl>
