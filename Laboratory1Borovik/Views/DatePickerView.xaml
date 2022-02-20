@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Laboratory1.Views"
         mc:Ignorable="d"
         Background="White"
         Width="400">
@@ -22,7 +21,7 @@
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock  Grid.Row="0" Text="Choose your date of birth" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Margin="5,0,0,0" VerticalAlignment="Stretch" Width="Auto" Height="Auto"></TextBlock>
-        <DatePicker Text="Pick your date" Name="dateOfBirthPicker" Grid.Row="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Margin="5,5,5,5" VerticalAlignment="Stretch" Width="Auto" Height="Auto"  SelectedDate="{Binding UserBirthday, Mode=TwoWay}"/>
+        <DatePicker Text="Pick your date" Grid.Row="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Margin="5,5,5,5" VerticalAlignment="Stretch" Width="Auto" Height="Auto"  SelectedDate="{Binding UserBirthday, Mode=TwoWay}"/>
         <Button Content="Confirm" Grid.Row="2" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" Width="Auto" Command="{Binding ValidateFieldsCommand}"/>
         <Button Content="Exit" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" Width="Auto" Command="{Binding ExitCommand}"/>
         <TextBlock  Grid.Row="3" Grid.Column="0" TextAlignment="Center" HorizontalAlignment="Stretch" Text="Your age:"></TextBlock>

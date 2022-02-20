@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Laboratory1.Tools;
 using Laboratory1.Models;
 using System.Windows;
@@ -32,14 +28,14 @@ namespace Laboratory1.ViewModels
         {
             get 
             { 
-                return validateFieldsCommand ?? (validateFieldsCommand = new RelayCommand<object>(o => ValidateUserFields())); 
+                return validateFieldsCommand ??= new RelayCommand<object>(o => ValidateUserFields()); 
             }
         }
         public RelayCommand<object> ExitCommand
         {
             get
             {
-                return exitCommand ?? (exitCommand = new RelayCommand<object>(o => Close()));
+                return exitCommand ??= new RelayCommand<object>(o => Close());
             }
         }
         private void Close()
@@ -82,7 +78,7 @@ namespace Laboratory1.ViewModels
             set
             {
                 chineseZodiacSign = value;
-                OnPropertyChanged(nameof(ChineseZodiacSign));
+                OnPropertyChanged();
             }
         }
         public string WesternZodiacSign
@@ -94,7 +90,7 @@ namespace Laboratory1.ViewModels
             set
             {
                 westernZodiacSign = value;
-                OnPropertyChanged(nameof(WesternZodiacSign));
+                OnPropertyChanged();
             }
         }
         public string UserAge 
@@ -106,7 +102,7 @@ namespace Laboratory1.ViewModels
             set
             {
                 userAge = value;
-                OnPropertyChanged(nameof(UserAge));
+                OnPropertyChanged();
             }
         }
         public string Congratulations
@@ -118,7 +114,7 @@ namespace Laboratory1.ViewModels
             set
             {
                 congratulations = value;
-                OnPropertyChanged(nameof(Congratulations));
+                OnPropertyChanged();
             }
         }
 
@@ -129,14 +125,7 @@ namespace Laboratory1.ViewModels
 
         public string GetCongratMessage()
         {
-            if(ourUser.HasBirthday)
-            {
-                return "Happy birthday!";
-            }
-            else
-            {
-                return "Today is not your birthday :(";
-            }
+            return ourUser.HasBirthday ? "Happy birthday!" : "Today is not your birthday :(";
         }
     }
 }
